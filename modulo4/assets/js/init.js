@@ -225,7 +225,7 @@ async function mostrarTab(elemento) {
     }
     contenedorPrincipal.innerHTML = await response.text();
 
-    if (diapositiva >= 2) {
+    if (diapositiva >= 1) {
       audioIntro.pause();
       audioIntro.currentTime = 0;
       playButton.innerHTML = '<i class="fa fa-play"></i>';
