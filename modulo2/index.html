@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas consultivas para vehículos comerciales</title>
+    <link rel="stylesheet" href="assets/library/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/library/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@7.2.0/minified/introjs.min.css">
+    <link rel="stylesheet" href="./assets/css/wbt.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+
+<body>
+    <input type="hidden" name="finalizado" id="finalizado" value="NO">
+    <div class="overlay" id="overlay"></div>
+    <div class="side-menu" id="sideMenu">
+        <span class="close-btn" id="closeBtn">&times;</span>
+        <ul>
+            <li><a href="#">MÓDULO 1</a></li>
+            <li><a href="#" class="text-danger">MÓDULO 2</a></li>
+            <li><a href="#">MÓDULO 3</a></li>
+            <li><a href="#">MÓDULO 4</a></li>
+        </ul>
+    </div>
+
+    <div class="container-wbt">
+        <div class="header header-bg-color-init">
+            <button class="menu-btn ocultar" id="menuBtn">☰</button>
+            <div class="logo-title d-none d-md-block">
+                <div class="title ocultar">VENTAS CONSULTIVAS</div>
+                <div class="subtitle ocultar">PARA VEHÍCULOS COMERCIALES</div>
+            </div>
+            <button class="logout-btn logout-btn-color-init" id="btnInit">ENTRAR →</button>
+        </div>
+
+        <div class="content content-init">
+            <div class="contenido contenido-init container flex-column ps-0 ms-0" id="contenido">
+                <!-- Contenido dinámico -->
+            </div>
+            <div class="navigation ocultar">
+                <div class="nav-btn" id="btnIzquierda">←</div>
+                <div class="nav-btn" id="btnDerecha">→</div>
+            </div>
+        </div>
+        <section class="position-relative invisible" id="sectionAudio">
+            <div id="audio" role="region" aria-label="Controles de audio">
+                <audio id="audiointro" class="audiointro">
+                    <source id="audiointroSource" src="assets/audios/intro.mp3" type="audio/mpeg">
+                    Tu navegador no soporta audio HTML5.
+                </audio>
+                <button class="btn" id="playAudio" aria-label="Reproducir audio">
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                </button>
+                <b id="textAudio" aria-live="polite">Reproducir audio</b>
+            </div>
+        </section>
+        <div class="footer footer-init">
+            <div class="footer-content">
+                <div class="footer-imagen">
+                    <img src="./assets/img/logo-Isuzu-blanco.png" alt="Logo ISUZU">
+                </div>
+                <div class="program-indicator ocultar">
+                    <p class="mb-0">PROGRAMA DE ENTRENAMIENTO BÁSICO 1</p>
+                    <div class="progress">
+                        <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated"
+                            role="progressbar" style="width: 0%">0%</div>
+                    </div>
+                </div>
+                <div class="content-usuario content-usuario-init">
+                    <span class="welcome-text">BIENVENIDO</span>
+                    <span id="NameUsr"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalFinalizar" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: 0px;">
+                    <h5 class="modal-title" id="exampleModalLabel">¡BUEN TRABAJO!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" style="min-height: 300px;">
+                    <p>Módulo completado, recuerda hacer clic en el botón SALIR en la parte superior derecha.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalMessage" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: 0px;">
+                    <h5 class="modal-title" id="exampleModalLabel">¡Alerta!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" style="min-height: 300px;">
+                    <p id="messageAlert"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalResultadoActividad" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: 0px;">
+                    <h5 class="modal-title">Resultado de la actividad</h5>
+                    <button type="button" id="modalResultadoActividadCerrar" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" style="min-height: 300px;">
+                    <div class="row">
+                        <div class="col-md-12" id="modalResultadoActividadContenido">
+                            <!-- Resultado de la actividad -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/jquery-1.11.0.min.js"></script>
+    <script src="./assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intro.js@7.2.0/intro.min.js"></script>
+    <script src="./assets/library/bootstrap/js/bootstrap.bundle.min.js"> </script>
+    <script src="./assets/library/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/js/init.js"></script>
+    <script src="./assets/js/wbt.js"></script>
+    <script src="./assets/js/SCORM_API_wrapper.js"></script>
+    <script src="./assets/js/scorm.js"></script>
+</body>
+
+</html>

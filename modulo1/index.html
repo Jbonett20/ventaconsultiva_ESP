@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ventas consultivas para vehículos comerciales</title>
+    <link rel="stylesheet" href="assets/library/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/library/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@7.2.0/minified/introjs.min.css">
+    <link rel="stylesheet" href="assets/css/wbt.css">
+
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline';"> -->
+
+</head>
+
+<body>
+    <input type="hidden" name="finalizado" id="finalizado" value="NO">
+    <div class="overlay" id="overlay"></div>
+    <div class="side-menu" id="sideMenu" role="navigation" aria-label="Main menu">
+        <span class="close-btn" id="closeBtn">&times;</span>
+        <ul>
+            <li><a href="#" class="text-danger">MODULO 1</a></li>
+            <li><a href="#">MODULO 2</a></li>
+            <li><a href="#">MODULO 3</a></li>
+            <li><a href="#">MODULO 4</a></li>
+        </ul>
+    </div>
+
+    <div class="container-wbt">
+        <div class="header header-bg-color-init">
+            <button class="menu-btn ocultar" id="menuBtn" aria-label="Menu">☰</button>
+            <div class="logo-title " data-step="1" data-intro="You will see the course title here">
+                <div class="title ocultar">VENTAS CONSULTIVAS</div>
+                <div class="subtitle ocultar">PARA VEHÍCULOS COMERCIALES</div>
+            </div>
+            <button data-step="2" data-intro="In this area, you'll find the Exit button. Please do not close the browser — click this element to leave the lesson.<br><br>NOTE: In the bottom-left corner, you will find the audio control buttons." class="logout-btn logout-btn-color-init" id="btnInit">ENTRAR →</button>
+        </div>
+
+        <div class="content content-init">
+            <div class="contenido contenido-init" data-step="3" data-intro="This is where you'll find the course interaction and content." id="contenido">
+
+
+            </div>
+            <div class="navigation ocultar">
+                <div class="nav-btn" id="btnIzquierda" data-step="5" data-intro="Click 'Previous' to review the content you have already covered.">←</div>
+                <div class="nav-btn" id="btnDerecha" data-step="4" data-intro="Click on 'Next' to go through each of the possibilities.">→</div>
+            </div>
+        </div>
+
+        <section class="position-relative invisible" id="sectionAudio">
+            <div id="audio" role="region" aria-label="Audio controls">
+                <audio id="audiointro" class="audiointro">
+                    <source id="audiointroSource" src="assets/audios/intro.mp3" type="audio/mpeg">
+                    Tu navegador no soporta audio HTML5.
+                </audio>
+                <button class="btn" id="playAudio" aria-label="Play audio">
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                </button>
+                <b id="textAudio" aria-live="polite">Reproducir audio</b>
+            </div>
+        </section>
+
+        <div class="footer footer-init">
+            <div class="footer-content">
+                <div class="footer-imagen">
+                    <img src="./assets/img/logo-Isuzu-blanco.png" alt="ISUZU logo">
+                </div>
+                <div class="program-indicator ocultar">
+                    <p class="mb-0">PROGRAMA DE ENTRENAMIENTO BÁSICO 1</p>
+                    <div class="progress" data-step="6" data-intro="In this section, you will find the module progress.">
+                        <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated"
+                            role="progressbar" style="width: 0%">0%</div>
+                    </div>
+                </div>
+                <div class="content-usuario content-usuario-init">
+                    <span class="welcome-text">BIENVENIDO</span>
+                    <span id="NameUsr"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalFinalizar" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: 0px;">
+                    <h5 class="modal-title" id="exampleModalLabel">GOOD JOB!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="min-height: 300px;">
+                    <p>Módulo completado, recuerda hacer clic en el botón SALIR en la parte superior derecha.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/jquery-1.11.0.min.js"></script>
+    <script src="./assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intro.js@7.2.0/intro.min.js"></script>
+    <script src="./assets/library/bootstrap/js/bootstrap.bundle.min.js"> </script>
+    <script src="./assets/library/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/js/init.js"></script>
+    <script src="./assets/js/wbt.js"></script>
+    <script src="./assets/js/SCORM_API_wrapper.js"></script>
+    <script src="./assets/js/scorm.js"></script>
+</body>
+
+</html>
