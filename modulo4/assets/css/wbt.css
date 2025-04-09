@@ -48,8 +48,10 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 20px var(--container-box-shadow);
     margin: 20px auto;
-    max-width: 1200px;
+    max-width: 1400px;
+    min-height: 800px;
     overflow: hidden;
+    width: 95%;
 }
 
 .header {
@@ -125,7 +127,7 @@ body {
 .contenido-init {
     display: flex;
     /* flex-direction: column; */
-    height: 400px !important;
+    height: 500px !important;
     justify-content: center;
     margin-bottom: 0px !important;
     text-align: center;

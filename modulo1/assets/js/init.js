@@ -167,12 +167,9 @@ function audioTab(audio) {
 function intro() {
   introJs()
     .setOptions({
-      // nextLabel: "Siguiente",
-      // prevLabel: "Anterior",
-      // doneLabel: "Listo",
-      dontShowAgain: true,
-      // dontShowAgainLabel: "No mostrar esto nuevamente",
-      dontShowAgainCookie: "Cookie_wbt_venta_consultiva",
+      nextLabel: "Siguiente",
+      prevLabel: "Anterior",
+      doneLabel: "Listo",
       exitOnOverlayClick: false,
       exitOnEsc: false,
       disableInteraction: true,
@@ -190,24 +187,10 @@ function intro() {
             console.log("Error al reproducir el audio:", error);
           });
       }
+
       const dontShowAgainContainer = document.querySelector(
         ".introjs-dontShowAgain"
       );
-
-      /* if (dontShowAgainContainer) {
-        let icon =
-          dontShowAgainContainer.parentElement.querySelector(".introjs-icono");
-        if (!icon) {
-          icon = document.createElement("img");
-          icon.src = "assets/recursos/PersonajeFemenino.png";
-          icon.alt = "Personaje";
-          icon.className = "introjs-icono";
-          dontShowAgainContainer.parentElement.insertBefore(
-            icon,
-            dontShowAgainContainer
-          );
-        }
-      } */
     })
     .onexit(() => {
       audioIntro.pause();
@@ -218,6 +201,7 @@ function intro() {
     })
     .start();
 }
+
 
 async function mostrarTab(elemento) {
   try {

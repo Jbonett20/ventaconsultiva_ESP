@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   mostrarTab(`tab-presentacion.html`);
 });
 
-document.addEventListener("click",async  function (e) {
+document.addEventListener("click", function (e) {
   if (e.target && e.target.id === "btnStart") {
     e.preventDefault();
     diapositiva = 1
@@ -43,42 +43,16 @@ document.addEventListener("click",async  function (e) {
 
   if (e.target && e.target.id === "btnInit") {
     e.preventDefault();
-    btnInit.innerText = "LOG OUT →";
+    btnInit.innerText = "SALIR →";
     btnInit.id = "SalirBtn";
     mostrarTab(`tab-inicio.html`);
     habilitar();
-  }
-  while (
-    elementoClickeado &&
-    !elementoClickeado.classList.contains("MAnimacion")
-  ) {
-    elementoClickeado = elementoClickeado.parentElement;
-  }
-
-  if (elementoClickeado && elementoClickeado.classList.contains("MAnimacion")) {
-    e.preventDefault();
-
-    const resultado = await validarElemento(elementoClickeado);
-
-    if (resultado.valido) {
-      elementoClickeado.classList.remove("MAnimacion");
-      elementosProcesados.set(elementoClickeado, true);
-    } else {
-      messageAlert.innerText =
-        "You need to complete Item 1 before proceeding to the next step.";
-      new bootstrap.Modal(modalMessage).show();
-    }
   }
 });
 
 btnIzquierda.addEventListener("click", function (e) {
   e.preventDefault();
   if (diapositiva === 1) {
-    return;
-  }
-  const MAnimacion = document.querySelectorAll(".MAnimacion");
-  if (MAnimacion.length > 0) {
-    console.log("Debe completar la funcionalidad");
     return;
   }
   if (diapositiva >= 1) {
@@ -94,14 +68,6 @@ btnDerecha.addEventListener("click", function (e) {
   if (diapositiva > totalDiapositivas - 1) {
     return;
   }
-  const MAnimacion = document.querySelectorAll(".MAnimacion");
-  if (MAnimacion.length > 0) {
-    messageAlert.innerText =
-      "Para acceder a la siguiente sección, complete los pasos que se muestran por fecha en el orden correcto.";
-    new bootstrap.Modal(modalMessage).show();
-    return;
-  }
-
   if (diapositiva <= totalDiapositivas - 1) {
     diapositiva++;
   }
@@ -161,12 +127,12 @@ function audioTab(audio) {
 function intro() {
   introJs()
     .setOptions({
-      nextLabel: "Siguiente",
-      prevLabel: "Anterior",
-      doneLabel: "Listo",
+      // nextLabel: "Siguiente",
+      // prevLabel: "Anterior",
+      // doneLabel: "Listo",
       dontShowAgain: true,
-      dontShowAgainLabel: "No mostrar esto nuevamente",
-      dontShowAgainCookie: "Cookie_ESING_Intro_Estatica",
+      // dontShowAgainLabel: "No mostrar esto nuevamente",
+      dontShowAgainCookie: "Cookie_wbt_venta_consultiva",
       exitOnOverlayClick: false,
       exitOnEsc: false,
       disableInteraction: true,
@@ -188,7 +154,7 @@ function intro() {
         ".introjs-dontShowAgain"
       );
 
-  /*     if (dontShowAgainContainer) {
+      /* if (dontShowAgainContainer) {
         let icon =
           dontShowAgainContainer.parentElement.querySelector(".introjs-icono");
         if (!icon) {
@@ -221,7 +187,8 @@ async function mostrarTab(elemento) {
       throw new Error("No se pudo cargar el contenido");
     }
     contenedorPrincipal.innerHTML = await response.text();
-    if (diapositiva >= 2) {
+
+    if (diapositiva >= 1) {
       audioIntro.pause();
       audioIntro.currentTime = 0;
       playButton.innerHTML = '<i class="fa fa-play"></i>';
@@ -291,6 +258,7 @@ function ocultarTitulo() {
     .querySelector(".logo-title")
     ?.classList.toggle("ocultar", diapositiva === 1);
 }
+
 const validarElemento = async (elemento) => {
   const todosLosElementos = Array.from(
     document.querySelectorAll(".MAnimacion")
@@ -314,6 +282,7 @@ const validarElemento = async (elemento) => {
     mensaje: `Elemento ${index + 1} completado correctamente.`,
   };
 };
+
 const todosProcesados = () => {
   const elementos = document.querySelectorAll(".MAnimacion");
 
