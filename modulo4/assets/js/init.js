@@ -68,7 +68,7 @@ document.addEventListener("click",async function (e) {
       elementosProcesados.set(elementoClickeado, true);
     } else {
       messageAlert.innerText =
-        "You need to complete Item 1 before proceeding to the next step.";
+        "Debe completar el elemento 1 antes de continuar con el siguiente paso.";
       new bootstrap.Modal(modalMessage).show();
     }
   }
