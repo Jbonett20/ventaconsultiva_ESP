@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   mostrarTab(`tab-presentacion.html`);
 });
 
-document.addEventListener("click", function (e) {
+document.addEventListener("click", async function (e) {
   if (e.target && e.target.id === "btnStart") {
     e.preventDefault();
     diapositiva = 1
@@ -47,6 +47,30 @@ document.addEventListener("click", function (e) {
     btnInit.id = "SalirBtn";
     mostrarTab(`tab-inicio.html`);
     habilitar();
+  }
+
+  let elementoClickeado = e.target;
+
+  while (
+    elementoClickeado &&
+    !elementoClickeado.classList.contains("MAnimacion")
+  ) {
+    elementoClickeado = elementoClickeado.parentElement;
+  }
+
+  if (elementoClickeado && elementoClickeado.classList.contains("MAnimacion")) {
+    e.preventDefault();
+
+    const resultado = await validarElemento(elementoClickeado);
+
+    if (resultado.valido) {
+      elementoClickeado.classList.remove("MAnimacion");
+      elementosProcesados.set(elementoClickeado, true);
+    } else {
+      messageAlert.innerText =
+        "Debe completar el elemento 1 antes de continuar con el siguiente paso.";
+      new bootstrap.Modal(modalMessage).show();
+    }
   }
 });
 
